@@ -6,11 +6,12 @@ Split a full name into it's various parts (salutation, first, last, etc)
 
 The goal of this project is to develop an intelligent algorithm for splitting full names into the following parts:
 
-Salutation
-First Name
-Initials
-Last Name
-Suffix
+* Salutation
+* First Name
+* Initials
+* Last Name
+* Suffix
+
 This project also attempts to fix some common formatting issues like capitalization.
 
 

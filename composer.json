@@ -1,0 +1,20 @@
+{
+    "name": "anunay/Fullname-Parser",
+    "version": "0.1.1",
+    "type": "library",
+    "description": "Fullname parser",
+    "keywords": ["parser","api"],
+    "homepage": "https://github.com/anunay/Fullname-Parser",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anunay Dahal",
+            "email": "anunay.dahal@gmail.com",
+            "homepage": "http://anunaydahal.com/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    }
+}

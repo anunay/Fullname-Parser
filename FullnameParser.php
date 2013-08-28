@@ -1,4 +1,4 @@
-<?
+<?php
 
 /*  split full names into the following parts:
     - prefix / salutation  (Mr., Mrs., etc)
@@ -11,13 +11,13 @@
 
 class FullnameParser{
 
-    private $namedata; 
+    private $namedata;
     private $returntype;
     private $fullname;
 
     public function __construct($fullname){
         $this->setFullname($fullname);
-        $this->setReturnType();        
+        $this->setReturnType();
     }
 
     public function getNamePartials(){
@@ -43,19 +43,19 @@ class FullnameParser{
         // concat the first name
         for ($i=$start; $i < $end-1; $i++) {
             $word = $name_parts[$i];
-            
-            /*  move on to parsing the last name if we find an indicator of 
-                a compound last name (Von, Van, etc) we use $i != $start to 
-                allow for rare cases where an indicator is actually the 
-                first name (like "Von Fabella") 
+
+            /*  move on to parsing the last name if we find an indicator of
+                a compound last name (Von, Van, etc) we use $i != $start to
+                allow for rare cases where an indicator is actually the
+                first name (like "Von Fabella")
             */
-            
+
             if ($this->is_compound_lname($word) && $i != $start)
                 break;
             // is it a middle initial or part of their first name?
             // if we start off with an initial, we'll call it the first name
             if ($this->is_initial($word)) {
-                // is the initial the first word?  
+                // is the initial the first word?
                 if ($i == $start) {
                     // if so, do a look-ahead to see if they go by their middle name
                     // for ex: "R. Jason Smith" => "Jason Smith" & "R." is stored as an initial
@@ -70,7 +70,7 @@ class FullnameParser{
                 }
             } else {
                 $fname .= " ".$this->fix_case($word);
-            }  
+            }
         }
 
         // check that we have more than 1 word in our string
@@ -84,7 +84,7 @@ class FullnameParser{
             $fname = $this->fix_case($name_parts[$i]);
         }
 
-        
+
         // return the various parts in an array
         if($this->getReturnType()=="array"){
             $this->namedata = array();
@@ -92,7 +92,7 @@ class FullnameParser{
             $this->namedata['fname'] = trim($fname);
             $this->namedata['initials'] = trim($initials);
             $this->namedata['lname'] = trim($lname);
-            $this->namedata['suffix'] = $suffix;            
+            $this->namedata['suffix'] = $suffix;
         }else{
             $this->namedata = new StdClass();
             $this->namedata->salutation = $salutation;

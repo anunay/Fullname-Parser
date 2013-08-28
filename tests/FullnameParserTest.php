@@ -1,5 +1,5 @@
 <?php
-require_once 'FullnameParser.php';
+require_once '../FullnameParser.php';
 
 class FullnameParserTest extends PHPUnit_Framework_TestCase
 {

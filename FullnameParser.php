@@ -15,12 +15,14 @@ class FullnameParser{
     private $returntype;
     private $fullname;
 
+
     public function __construct($fullname){
         $this->setFullname($fullname);
         $this->setReturnType();
     }
 
     public function getNamePartials(){
+        $fname = "";
         $full_name = $this->getFullname();
         $full_name = trim($full_name);
         // split into words
